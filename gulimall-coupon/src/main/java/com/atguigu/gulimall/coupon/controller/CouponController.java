@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +26,18 @@ import com.atguigu.gulimall.common.utils.R;
  * @email imwangxuesen@163.com
  * @date 2020-07-31 11:17:00
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")
+    String userName;
+
+    @Value("${coupon.user.password}")
+    String password;
 
     /**
      * 列表
@@ -80,5 +89,21 @@ public class CouponController {
 
         return R.ok();
     }
+
+    /*
+    * feign 测试调用，获取会员的优惠券
+    */
+    @RequestMapping("/member/list")
+    public R memberCoupons() {
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满100减10");
+        return R.ok().put("coupons",Arrays.asList(couponEntity));
+    }
+
+    @RequestMapping("/accountInfo")
+    public R couponAccountInfo() {
+        return  R.ok().put("userName",userName).put("password",password);
+    }
+
 
 }

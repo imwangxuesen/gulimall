@@ -19,7 +19,8 @@
 - [ ] ElasticSearch全文检索
 - [ ] OSS对象存储
 - [ ] CI/CD(Developer->Github->Docker镜像仓库->Kuberneters API->K8S<-Jenkins Pipeline<-OP)
-
+- [x] renren-fast
+- [x] vue,element-ui,webpack...
 #### 软件架构
 软件架构说明
 

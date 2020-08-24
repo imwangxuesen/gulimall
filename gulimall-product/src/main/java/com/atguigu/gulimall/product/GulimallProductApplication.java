@@ -20,6 +20,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 *     2，配置MyBatis-Plus；
 *       1）,使用 Mapperscan注解
 *       2),告诉MyBatis-Plus，sql映射文件位置,(zai application.yml配置mapper xml的文件夹)
+*
+*  2，逻辑删除
+*   1),配置逻辑删除
 * */
 
 @MapperScan("com.atguigu.gulimall.product.dao")

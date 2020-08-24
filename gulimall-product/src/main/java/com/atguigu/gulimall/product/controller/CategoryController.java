@@ -78,11 +78,14 @@ public class CategoryController {
     }
 
     /**
-     * 删除
+     * 删除分类
+     * @RequestBody:获取请求体，必须发送post请求
+     * 自动将请求中的json转化为对应对象
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+//		categoryService.removeByIds(Arrays.asList(catIds));
+		categoryService.removeMenuByIds(Arrays.asList(catIds));
 
         return R.ok();
     }

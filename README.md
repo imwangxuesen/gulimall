@@ -3,6 +3,8 @@
 #### 介绍
 微服务架构学习、Java、几乎涵盖所有常见微服务技术框架
 
+[管理后台项目仓库](https://github.com/imwangxuesen/gulimall-admin)
+
 #### TODO：
 - [x] Nacos注册中心(服务注册、服务发现)
 - [x] Nacos配置中心(动态配置、配置隔离)

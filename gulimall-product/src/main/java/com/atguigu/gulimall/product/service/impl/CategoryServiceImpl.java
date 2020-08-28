@@ -38,6 +38,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         List<CategoryEntity> Level1Entities = entities.stream().filter((categoryEntity) -> {
             return categoryEntity.getParentCid() == 0;
         }).map((menu)->{
+            if (menu.getCatId() == 1440) {
+                System.out.println('1');
+            }
             menu.setChildren(getChildrens(menu,entities));
             return menu;
         }).sorted((menu1,menu2)-> {
@@ -67,4 +70,4 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         // 逻辑删除
         baseMapper.deleteBatchIds(asList);
     }
-}
+ }
